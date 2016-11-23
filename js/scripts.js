@@ -126,17 +126,24 @@ function checkRoundWinner(playerPick, computerPick) {
     }
 
 
-    function getTenPoints(){
-      if ((player.score >= 10)||(computer.score >= 10)){
-        if (player.score > computer.score){
-          playerResultElem.innerHTML = "Brawo Ty!";
-        } else {
-          computerResultElem.innerHTML = "Brawo Komputer!";
-        }
-      }
-    };
+function GetTenPoints(){
+  if ((player.score >= 10)||(computer.score >= 10)){
+    if (player.score > computer.score){
+        playerResultElem.innerHTML = "Brawo Ty!";
+        setGameElements();
+        gameState = 'ended';
+      
+    } else {
+      computerResultElem.innerHTML = "Brawo Komputer!";
+      setGameElements();
+       gameState = 'ended';
+    }
 
-    getTenPoints();
-    gameState = 'ended';
+  }
+}
 
+setGamePoints(); 
+GetTenPoints();
 };
+
+
